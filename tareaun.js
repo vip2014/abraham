@@ -27,7 +27,7 @@ function llenarMatrizCaracol(n) {
         finFila--;
       }
   
-      // Llenar columna izquierda
+      // este if es para llenar la columna izquierda
       if (inicioColumna <= finColumna) {
         for (let i = finFila; i >= inicioFila; i--) {
           matriz[i][inicioColumna] = valor++;

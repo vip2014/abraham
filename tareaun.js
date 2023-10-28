@@ -39,8 +39,7 @@ function llenarMatrizCaracol(n) {
     return matriz;
   }
   
-  // Ejemplo de uso con una matriz de 4x4
-  const matrizResultado = llenarMatrizCaracol(4);
+  const matrizResultado = llenarMatrizCaracol(6);
   for (let fila of matrizResultado) {
     console.log(fila.join("\t"));
   }

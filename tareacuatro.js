@@ -1,35 +1,37 @@
-// Función para realizar operaciones matemáticas
-function calcular(operacion) {
-    let num1 = parseFloat(document.getElementById("num1").value);
-    let num2 = parseFloat(document.getElementById("num2").value);
-    let resultado = 0;
-  
-    switch (operacion) {
-      case "suma":
-        resultado = num1 + num2;
-        break;
-      case "resta":
-        resultado = num1 - num2;
-        break;
-      case "multiplicacion":
-        resultado = num1 * num2;
-        break;
-      case "division":
-        if (num2 !== 0) {
-          resultado = num1 / num2;
-        } else {
-          alert("No se puede dividir por cero.");
-          return;
-        }
-        break;
+function generarMatrizAleatoria(n) {
+    const matriz = [];
+    for (let i = 0; i < n; i++) {
+      matriz[i] = [];
+      for (let j = 0; j < n; j++) {
+        matriz[i][j] = Math.floor(Math.random() * 100); // Valores aleatorios entre 0 y 99
+      }
     }
-  
-    document.getElementById("resultado").innerText = `Resultado: ${resultado}`;
+    return matriz;
   }
   
-  // Escuchar eventos del botón
-  document.getElementById("btnSuma").addEventListener("click", () => calcular("suma"));
-  document.getElementById("btnResta").addEventListener("click", () => calcular("resta"));
-  document.getElementById("btnMultiplicacion").addEventListener("click", () => calcular("multiplicacion"));
-  document.getElementById("btnDivision").addEventListener("click", () => calcular("division"));
+  function sumarMatrices(matriz1, matriz2) {
+    const n = matriz1.length;
+    const resultado = [];
+  
+    for (let i = 0; i < n; i++) {
+      resultado[i] = [];
+      for (let j = 0; j < n; j++) {
+        resultado[i][j] = matriz1[i][j] + matriz2[i][j];
+      }
+    }
+  
+    return resultado;
+  }
+  
+  const n = 3; // Cambia este valor para definir el tamaño de las matrices (n x n)
+  const matrizA = generarMatrizAleatoria(n);
+  const matrizB = generarMatrizAleatoria(n);
+  const matrizC = sumarMatrices(matrizA, matrizB);
+  
+  console.log("Matriz A:");
+  console.table(matrizA);
+  console.log("Matriz B:");
+  console.table(matrizB);
+  console.log("Matriz C (suma de A y B):");
+  console.table(matrizC);
   
